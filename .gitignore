@@ -51,3 +51,7 @@ terraform.rc
 # vendor/
 
 .idea/
+
+# API client generator
+swagger-codegen-cli.jar
+hivelocity-client-go/
