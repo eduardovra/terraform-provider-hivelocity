@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** |  | [optional] [default to null]
-**FullName** | **string** |  | [optional] [default to null]
 **Email** | **string** |  | [optional] [default to null]
+**FullName** | **string** |  | [optional] [default to null]
 **Active** | **int32** |  | [optional] [default to null]
 **Phone** | **string** |  | [optional] [default to null]
 
