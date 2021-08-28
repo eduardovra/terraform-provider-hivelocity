@@ -55,3 +55,4 @@ terraform.rc
 # API client generator
 swagger-codegen-cli.jar
 hivelocity-client-go/
+docs/
