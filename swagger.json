@@ -64,7 +64,7 @@
                 },
                 {
                     "type": "integer",
-                    "default": 1630070096,
+                    "default": 1630154430,
                     "in": "query",
                     "description": "End Time of Custom Time Period (Unix Epoch Time)",
                     "name": "end"
@@ -148,7 +148,7 @@
                 },
                 {
                     "type": "integer",
-                    "default": 1630070096,
+                    "default": 1630154430,
                     "in": "query",
                     "description": "End Time of Custom Time Period (Unix Epoch Time)",
                     "name": "end"
@@ -240,7 +240,7 @@
                 },
                 {
                     "type": "integer",
-                    "default": 1630070096,
+                    "default": 1630154430,
                     "in": "query",
                     "description": "End Time of Custom Time Period (Unix Epoch Time)",
                     "name": "end"
@@ -324,7 +324,7 @@
                 },
                 {
                     "type": "integer",
-                    "default": 1630070096,
+                    "default": 1630154430,
                     "in": "query",
                     "description": "End Time of Custom Time Period (Unix Epoch Time)",
                     "name": "end"
@@ -443,27 +443,6 @@
                     "type": "integer"
                 }
             ],
-            "delete": {
-                "responses": {
-                    "201": {
-                        "description": "Cancellation Started."
-                    },
-                    "204": {
-                        "description": "Device Deleted"
-                    },
-                    "401": {
-                        "description": "Not Allowed"
-                    },
-                    "404": {
-                        "description": "Device Not Found"
-                    }
-                },
-                "summary": "Cancel the specified bare metal device",
-                "operationId": "delete_bare_metal_device_id_resource",
-                "tags": [
-                    "Bare Metal Devices"
-                ]
-            },
             "get": {
                 "responses": {
                     "200": {
@@ -528,6 +507,27 @@
                         "description": "An optional fields mask"
                     }
                 ],
+                "tags": [
+                    "Bare Metal Devices"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "201": {
+                        "description": "Cancellation Started."
+                    },
+                    "204": {
+                        "description": "Device Deleted"
+                    },
+                    "401": {
+                        "description": "Not Allowed"
+                    },
+                    "404": {
+                        "description": "Device Not Found"
+                    }
+                },
+                "summary": "Cancel the specified bare metal device",
+                "operationId": "delete_bare_metal_device_id_resource",
                 "tags": [
                     "Bare Metal Devices"
                 ]
@@ -682,21 +682,6 @@
                     "type": "integer"
                 }
             ],
-            "delete": {
-                "responses": {
-                    "404": {
-                        "description": "Contact not found."
-                    },
-                    "204": {
-                        "description": "Contact successfully deleted."
-                    }
-                },
-                "summary": "Delete a Contact",
-                "operationId": "delete_contact_id_resource",
-                "tags": [
-                    "Contact"
-                ]
-            },
             "get": {
                 "responses": {
                     "200": {
@@ -752,6 +737,21 @@
                         "description": "An optional fields mask"
                     }
                 ],
+                "tags": [
+                    "Contact"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "404": {
+                        "description": "Contact not found."
+                    },
+                    "204": {
+                        "description": "Contact successfully deleted."
+                    }
+                },
+                "summary": "Delete a Contact",
+                "operationId": "delete_contact_id_resource",
                 "tags": [
                     "Contact"
                 ]
@@ -861,24 +861,6 @@
                     "type": "integer"
                 }
             ],
-            "delete": {
-                "responses": {
-                    "204": {
-                        "description": "Deployment Deleted"
-                    },
-                    "401": {
-                        "description": "Access to this Deployment not Allowed"
-                    },
-                    "404": {
-                        "description": "Deployment Not Found"
-                    }
-                },
-                "summary": "Delete the specified deployment",
-                "operationId": "delete_deployment_id_resource",
-                "tags": [
-                    "Deployment"
-                ]
-            },
             "get": {
                 "responses": {
                     "200": {
@@ -946,6 +928,24 @@
                         "description": "An optional fields mask"
                     }
                 ],
+                "tags": [
+                    "Deployment"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "Deployment Deleted"
+                    },
+                    "401": {
+                        "description": "Access to this Deployment not Allowed"
+                    },
+                    "404": {
+                        "description": "Deployment Not Found"
+                    }
+                },
+                "summary": "Delete the specified deployment",
+                "operationId": "delete_deployment_id_resource",
                 "tags": [
                     "Deployment"
                 ]
@@ -1835,27 +1835,6 @@
                     "type": "integer"
                 }
             ],
-            "delete": {
-                "responses": {
-                    "404": {
-                        "description": "Not found"
-                    },
-                    "403": {
-                        "description": "You have not been granted permission"
-                    },
-                    "400": {
-                        "description": "Error"
-                    },
-                    "204": {
-                        "description": "Deleted"
-                    }
-                },
-                "summary": "Delete a single A Record value for given zone",
-                "operationId": "delete_a_record_id_resource",
-                "tags": [
-                    "Domains"
-                ]
-            },
             "get": {
                 "responses": {
                     "200": {
@@ -1929,6 +1908,27 @@
                         "description": "An optional fields mask"
                     }
                 ],
+                "tags": [
+                    "Domains"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "403": {
+                        "description": "You have not been granted permission"
+                    },
+                    "400": {
+                        "description": "Error"
+                    },
+                    "204": {
+                        "description": "Deleted"
+                    }
+                },
+                "summary": "Delete a single A Record value for given zone",
+                "operationId": "delete_a_record_id_resource",
                 "tags": [
                     "Domains"
                 ]
@@ -2039,27 +2039,6 @@
                     "type": "integer"
                 }
             ],
-            "delete": {
-                "responses": {
-                    "404": {
-                        "description": "Not found"
-                    },
-                    "403": {
-                        "description": "You have not been granted permission"
-                    },
-                    "400": {
-                        "description": "Error"
-                    },
-                    "204": {
-                        "description": "Deleted"
-                    }
-                },
-                "summary": "Delete an AAAA Record for given zone",
-                "operationId": "delete_aaaa_record_id_resource",
-                "tags": [
-                    "Domains"
-                ]
-            },
             "get": {
                 "responses": {
                     "200": {
@@ -2133,6 +2112,27 @@
                         "description": "An optional fields mask"
                     }
                 ],
+                "tags": [
+                    "Domains"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "403": {
+                        "description": "You have not been granted permission"
+                    },
+                    "400": {
+                        "description": "Error"
+                    },
+                    "204": {
+                        "description": "Deleted"
+                    }
+                },
+                "summary": "Delete an AAAA Record for given zone",
+                "operationId": "delete_aaaa_record_id_resource",
                 "tags": [
                     "Domains"
                 ]
@@ -2243,27 +2243,6 @@
                     "type": "integer"
                 }
             ],
-            "delete": {
-                "responses": {
-                    "404": {
-                        "description": "Not found"
-                    },
-                    "403": {
-                        "description": "You have not been granted permission"
-                    },
-                    "400": {
-                        "description": "Error"
-                    },
-                    "204": {
-                        "description": "Deleted"
-                    }
-                },
-                "summary": "Delete an MX Record for given zone",
-                "operationId": "delete_mx_record_id_resource",
-                "tags": [
-                    "Domains"
-                ]
-            },
             "get": {
                 "responses": {
                     "200": {
@@ -2337,6 +2316,27 @@
                         "description": "An optional fields mask"
                     }
                 ],
+                "tags": [
+                    "Domains"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "403": {
+                        "description": "You have not been granted permission"
+                    },
+                    "400": {
+                        "description": "Error"
+                    },
+                    "204": {
+                        "description": "Deleted"
+                    }
+                },
+                "summary": "Delete an MX Record for given zone",
+                "operationId": "delete_mx_record_id_resource",
                 "tags": [
                     "Domains"
                 ]
@@ -2962,24 +2962,6 @@
                     "type": "integer"
                 }
             ],
-            "delete": {
-                "responses": {
-                    "403": {
-                        "description": "Current user is not the owner."
-                    },
-                    "404": {
-                        "description": "Public ssh key not found."
-                    },
-                    "200": {
-                        "description": "Public ssh key successfully removed."
-                    }
-                },
-                "summary": "Removes public ssh key",
-                "operationId": "delete_ssh_key_id_resource",
-                "tags": [
-                    "SshKey"
-                ]
-            },
             "get": {
                 "responses": {
                     "200": {
@@ -3047,6 +3029,24 @@
                         "description": "An optional fields mask"
                     }
                 ],
+                "tags": [
+                    "SshKey"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "403": {
+                        "description": "Current user is not the owner."
+                    },
+                    "404": {
+                        "description": "Public ssh key not found."
+                    },
+                    "200": {
+                        "description": "Public ssh key successfully removed."
+                    }
+                },
+                "summary": "Removes public ssh key",
+                "operationId": "delete_ssh_key_id_resource",
                 "tags": [
                     "SshKey"
                 ]
@@ -3129,33 +3129,6 @@
                     "type": "integer"
                 }
             ],
-            "delete": {
-                "responses": {
-                    "200": {
-                        "description": "Success.",
-                        "schema": {
-                            "$ref": "#/definitions/Vlan"
-                        }
-                    },
-                    "400": {
-                        "description": "Error."
-                    }
-                },
-                "summary": "Remove an existing Private VLAN",
-                "operationId": "delete_vlan_id_resource",
-                "parameters": [
-                    {
-                        "name": "X-Fields",
-                        "in": "header",
-                        "type": "string",
-                        "format": "mask",
-                        "description": "An optional fields mask"
-                    }
-                ],
-                "tags": [
-                    "VLAN"
-                ]
-            },
             "get": {
                 "responses": {
                     "200": {
@@ -3209,6 +3182,33 @@
                             "$ref": "#/definitions/VlanCreate"
                         }
                     },
+                    {
+                        "name": "X-Fields",
+                        "in": "header",
+                        "type": "string",
+                        "format": "mask",
+                        "description": "An optional fields mask"
+                    }
+                ],
+                "tags": [
+                    "VLAN"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "Success.",
+                        "schema": {
+                            "$ref": "#/definitions/Vlan"
+                        }
+                    },
+                    "400": {
+                        "description": "Error."
+                    }
+                },
+                "summary": "Remove an existing Private VLAN",
+                "operationId": "delete_vlan_id_resource",
+                "parameters": [
                     {
                         "name": "X-Fields",
                         "in": "header",
@@ -3347,18 +3347,6 @@
                     "type": "integer"
                 }
             ],
-            "delete": {
-                "responses": {
-                    "204": {
-                        "description": "Webhook was deleted."
-                    }
-                },
-                "summary": "Deletes a single webhook",
-                "operationId": "delete_webhook_id_resource",
-                "tags": [
-                    "Webhook"
-                ]
-            },
             "get": {
                 "responses": {
                     "200": {
@@ -3414,6 +3402,18 @@
                         "description": "An optional fields mask"
                     }
                 ],
+                "tags": [
+                    "Webhook"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "Webhook was deleted."
+                    }
+                },
+                "summary": "Deletes a single webhook",
+                "operationId": "delete_webhook_id_resource",
                 "tags": [
                     "Webhook"
                 ]
@@ -3551,69 +3551,41 @@
                 "productId"
             ],
             "properties": {
-                "period": {
-                    "type": "string",
-                    "example": "hourly"
-                },
                 "productId": {
                     "type": "integer"
+                },
+                "locationName": {
+                    "type": "string"
                 },
                 "hostname": {
                     "type": "string"
                 },
+                "publicSshKeyId": {
+                    "type": "integer"
+                },
                 "script": {
                     "type": "string"
                 },
-                "locationName": {
+                "osName": {
                     "type": "string"
                 },
                 "vlanId": {
                     "type": "integer"
                 },
-                "publicSshKeyId": {
-                    "type": "integer"
-                },
-                "osName": {
-                    "type": "string"
+                "period": {
+                    "type": "string",
+                    "example": "hourly"
                 }
             },
             "type": "object"
         },
         "BareMetalDevice": {
             "properties": {
-                "period": {
-                    "type": "string",
-                    "example": "hourly"
-                },
-                "orderId": {
-                    "type": "integer"
-                },
                 "productId": {
                     "type": "integer"
                 },
-                "hostname": {
-                    "type": "string"
-                },
-                "powerStatus": {
-                    "type": "string"
-                },
                 "locationName": {
                     "type": "string"
-                },
-                "script": {
-                    "type": "string"
-                },
-                "vlanId": {
-                    "type": "integer"
-                },
-                "serviceId": {
-                    "type": "integer"
-                },
-                "primaryIp": {
-                    "type": "string"
-                },
-                "deviceId": {
-                    "type": "integer"
                 },
                 "tags": {
                     "type": "array",
@@ -3621,13 +3593,41 @@
                         "type": "string"
                     }
                 },
+                "deviceId": {
+                    "type": "integer"
+                },
+                "hostname": {
+                    "type": "string"
+                },
                 "publicSshKeyId": {
                     "type": "integer"
+                },
+                "productName": {
+                    "type": "string"
+                },
+                "primaryIp": {
+                    "type": "string"
+                },
+                "script": {
+                    "type": "string"
                 },
                 "osName": {
                     "type": "string"
                 },
-                "productName": {
+                "vlanId": {
+                    "type": "integer"
+                },
+                "period": {
+                    "type": "string",
+                    "example": "hourly"
+                },
+                "serviceId": {
+                    "type": "integer"
+                },
+                "orderId": {
+                    "type": "integer"
+                },
+                "powerStatus": {
                     "type": "string"
                 }
             },
@@ -3638,20 +3638,20 @@
                 "hostname": {
                     "type": "string"
                 },
+                "publicSshKeyId": {
+                    "type": "integer"
+                },
                 "script": {
                     "type": "string"
                 },
-                "publicSshKeyId": {
-                    "type": "integer"
+                "osName": {
+                    "type": "string"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     }
-                },
-                "osName": {
-                    "type": "string"
                 }
             },
             "type": "object"
@@ -3661,31 +3661,13 @@
                 "country": {
                     "type": "string"
                 },
-                "achAba": {
-                    "type": "string"
-                },
-                "zip": {
-                    "type": "string"
-                },
-                "achType": {
-                    "type": "string"
-                },
-                "clientId": {
-                    "type": "integer"
-                },
-                "phone": {
+                "ccType": {
                     "type": "string"
                 },
                 "achBank": {
                     "type": "string"
                 },
-                "paymentType": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "achAccount": {
+                "ccNum": {
                     "type": "string"
                 },
                 "company": {
@@ -3694,31 +3676,49 @@
                 "status": {
                     "type": "integer"
                 },
-                "first": {
-                    "type": "string"
-                },
-                "ccExpire": {
-                    "type": "string"
-                },
-                "last": {
-                    "type": "string"
-                },
-                "ccNum": {
-                    "type": "string"
-                },
-                "state": {
+                "zip": {
                     "type": "string"
                 },
                 "email": {
                     "type": "string"
                 },
+                "clientId": {
+                    "type": "integer"
+                },
                 "city": {
                     "type": "string"
                 },
-                "ccType": {
+                "address": {
                     "type": "string"
                 },
-                "address": {
+                "phone": {
+                    "type": "string"
+                },
+                "achAba": {
+                    "type": "string"
+                },
+                "achAccount": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "ccExpire": {
+                    "type": "string"
+                },
+                "paymentType": {
+                    "type": "string"
+                },
+                "first": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "last": {
+                    "type": "string"
+                },
+                "achType": {
                     "type": "string"
                 }
             },
@@ -3731,23 +3731,23 @@
                 "fullName"
             ],
             "properties": {
-                "email": {
-                    "type": "string"
+                "active": {
+                    "type": "integer"
                 },
                 "fullName": {
                     "type": "string"
                 },
-                "active": {
-                    "type": "integer"
-                },
                 "password": {
                     "type": "string",
-                    "default": "b0e8a46ff8ad92bd67dafa8365d871b8"
+                    "default": "279e5b8ce27c0217ede76f473ad58750"
                 },
                 "description": {
                     "type": "string"
                 },
                 "phone": {
+                    "type": "string"
+                },
+                "email": {
                     "type": "string"
                 }
             },
@@ -3760,28 +3760,28 @@
                 "fullName"
             ],
             "properties": {
-                "isClient": {
-                    "type": "boolean"
+                "active": {
+                    "type": "integer"
                 },
                 "clientId": {
                     "type": "integer"
                 },
-                "email": {
-                    "type": "string"
-                },
                 "fullName": {
                     "type": "string"
                 },
-                "active": {
-                    "type": "integer"
-                },
                 "contactId": {
                     "type": "integer"
+                },
+                "isClient": {
+                    "type": "boolean"
                 },
                 "description": {
                     "type": "string"
                 },
                 "phone": {
+                    "type": "string"
+                },
+                "email": {
                     "type": "string"
                 }
             },
@@ -3789,19 +3789,19 @@
         },
         "ContactUpdate": {
             "properties": {
-                "description": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
+                "active": {
+                    "type": "integer"
                 },
                 "fullName": {
                     "type": "string"
                 },
-                "active": {
-                    "type": "integer"
+                "description": {
+                    "type": "string"
                 },
                 "phone": {
+                    "type": "string"
+                },
+                "email": {
                     "type": "string"
                 }
             },
@@ -3986,14 +3986,14 @@
                 "thresholds"
             ],
             "properties": {
+                "thresholds": {
+                    "type": "object"
+                },
                 "device_ids": {
                     "type": "array",
                     "items": {
                         "type": "integer"
                     }
-                },
-                "thresholds": {
-                    "type": "object"
                 }
             },
             "type": "object"
@@ -4011,86 +4011,27 @@
         },
         "DeviceIPMIInfo": {
             "properties": {
-                "info": {
-                    "$ref": "#/definitions/IPMIInfo"
-                },
                 "sensors": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IPMISensor"
                     }
-                }
-            },
-            "type": "object"
-        },
-        "IPMIInfo": {
-            "properties": {
-                "selDevice": {
-                    "type": "string"
                 },
-                "ipmbEventReceiver": {
-                    "type": "string"
-                },
-                "productId": {
-                    "type": "string"
-                },
-                "sensorDevice": {
-                    "type": "string"
-                },
-                "deviceAvailable": {
-                    "type": "string"
-                },
-                "fruInventoryDevice": {
-                    "type": "string"
-                },
-                "ipmiVersion": {
-                    "type": "string"
-                },
-                "bridge": {
-                    "type": "string"
-                },
-                "deviceRevision": {
-                    "type": "string"
-                },
-                "deviceId": {
-                    "type": "string"
-                },
-                "firmwareRevision": {
-                    "type": "string"
-                },
-                "deviceSDRs": {
-                    "type": "string"
-                },
-                "sdrRepositoryDevice": {
-                    "type": "string"
-                },
-                "chassisDevice": {
-                    "type": "string"
-                },
-                "manufacturerId": {
-                    "type": "string"
-                },
-                "auxFirmwareRevInfo": {
-                    "type": "string"
-                },
-                "ipmbEventGenerator": {
-                    "type": "string"
+                "info": {
+                    "$ref": "#/definitions/IPMIInfo"
                 }
             },
             "type": "object"
         },
         "IPMISensor": {
             "properties": {
-                "units": {
-                    "type": "string"
-                },
                 "reading": {
                     "type": "number"
                 },
                 "name": {
                     "type": "string"
                 },
-                "sensorId": {
+                "units": {
                     "type": "string"
                 },
                 "status": {
@@ -4098,16 +4039,75 @@
                 },
                 "group": {
                     "type": "string"
+                },
+                "sensorId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IPMIInfo": {
+            "properties": {
+                "sensorDevice": {
+                    "type": "string"
+                },
+                "manufacturerId": {
+                    "type": "string"
+                },
+                "ipmbEventGenerator": {
+                    "type": "string"
+                },
+                "productId": {
+                    "type": "string"
+                },
+                "deviceRevision": {
+                    "type": "string"
+                },
+                "sdrRepositoryDevice": {
+                    "type": "string"
+                },
+                "ipmbEventReceiver": {
+                    "type": "string"
+                },
+                "auxFirmwareRevInfo": {
+                    "type": "string"
+                },
+                "chassisDevice": {
+                    "type": "string"
+                },
+                "ipmiVersion": {
+                    "type": "string"
+                },
+                "deviceId": {
+                    "type": "string"
+                },
+                "selDevice": {
+                    "type": "string"
+                },
+                "deviceAvailable": {
+                    "type": "string"
+                },
+                "firmwareRevision": {
+                    "type": "string"
+                },
+                "fruInventoryDevice": {
+                    "type": "string"
+                },
+                "deviceSDRs": {
+                    "type": "string"
+                },
+                "bridge": {
+                    "type": "string"
                 }
             },
             "type": "object"
         },
         "IPMILoginData": {
             "properties": {
-                "password": {
+                "host": {
                     "type": "string"
                 },
-                "host": {
+                "password": {
                     "type": "string"
                 },
                 "drivertype": {
@@ -4132,16 +4132,16 @@
         },
         "DeviceInitialCreds": {
             "properties": {
-                "password": {
-                    "type": "string"
-                },
-                "lockerUrl": {
+                "user": {
                     "type": "string"
                 },
                 "port": {
                     "type": "integer"
                 },
-                "user": {
+                "lockerUrl": {
+                    "type": "string"
+                },
+                "password": {
                     "type": "string"
                 }
             },
@@ -4176,9 +4176,6 @@
                 "name"
             ],
             "properties": {
-                "summary": {
-                    "type": "object"
-                },
                 "name": {
                     "type": "string"
                 },
@@ -4187,6 +4184,9 @@
                 },
                 "domainId": {
                     "type": "integer"
+                },
+                "summary": {
+                    "type": "object"
                 }
             },
             "type": "object"
@@ -4197,11 +4197,11 @@
                 "ttl"
             ],
             "properties": {
-                "ttl": {
-                    "type": "integer"
-                },
                 "name": {
                     "type": "string"
+                },
+                "ttl": {
+                    "type": "integer"
                 },
                 "address": {
                     "type": "string"
@@ -4218,22 +4218,22 @@
                 "type"
             ],
             "properties": {
-                "ttl": {
-                    "type": "integer"
-                },
-                "type": {
-                    "type": "string"
-                },
                 "addresses": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/RecordValue"
                     }
                 },
+                "type": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
                 },
                 "domainId": {
+                    "type": "integer"
+                },
+                "ttl": {
                     "type": "integer"
                 }
             },
@@ -4241,11 +4241,11 @@
         },
         "RecordValue": {
             "properties": {
-                "address": {
-                    "type": "string"
-                },
                 "id": {
                     "type": "integer"
+                },
+                "address": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -4258,12 +4258,6 @@
                 "type"
             ],
             "properties": {
-                "id": {
-                    "type": "integer"
-                },
-                "ttl": {
-                    "type": "integer"
-                },
                 "address": {
                     "type": "string"
                 },
@@ -4273,7 +4267,13 @@
                 "name": {
                     "type": "string"
                 },
+                "id": {
+                    "type": "integer"
+                },
                 "domainId": {
+                    "type": "integer"
+                },
+                "ttl": {
                     "type": "integer"
                 }
             },
@@ -4281,11 +4281,11 @@
         },
         "ARecordUpdate": {
             "properties": {
-                "ttl": {
-                    "type": "integer"
-                },
                 "name": {
                     "type": "string"
+                },
+                "ttl": {
+                    "type": "integer"
                 },
                 "address": {
                     "type": "string"
@@ -4300,11 +4300,11 @@
                 "ttl"
             ],
             "properties": {
-                "ttl": {
-                    "type": "integer"
-                },
                 "name": {
                     "type": "string"
+                },
+                "ttl": {
+                    "type": "integer"
                 },
                 "address": {
                     "type": "string"
@@ -4321,22 +4321,22 @@
                 "type"
             ],
             "properties": {
-                "ttl": {
-                    "type": "integer"
-                },
-                "type": {
-                    "type": "string"
-                },
                 "addresses": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/RecordValue"
                     }
                 },
+                "type": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
                 },
                 "domainId": {
+                    "type": "integer"
+                },
+                "ttl": {
                     "type": "integer"
                 }
             },
@@ -4344,11 +4344,11 @@
         },
         "AAAARecordUpdate": {
             "properties": {
-                "ttl": {
-                    "type": "integer"
-                },
                 "name": {
                     "type": "string"
+                },
+                "ttl": {
+                    "type": "integer"
                 },
                 "address": {
                     "type": "string"
@@ -4364,8 +4364,8 @@
                 "ttl"
             ],
             "properties": {
-                "ttl": {
-                    "type": "integer"
+                "exchange": {
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
@@ -4373,8 +4373,8 @@
                 "preference": {
                     "type": "integer"
                 },
-                "exchange": {
-                    "type": "string"
+                "ttl": {
+                    "type": "integer"
                 }
             },
             "type": "object"
@@ -4388,22 +4388,22 @@
                 "type"
             ],
             "properties": {
-                "mx": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/MXValue"
-                    }
-                },
-                "ttl": {
-                    "type": "integer"
-                },
                 "type": {
                     "type": "string"
                 },
                 "name": {
                     "type": "string"
                 },
+                "mx": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/MXValue"
+                    }
+                },
                 "domainId": {
+                    "type": "integer"
+                },
+                "ttl": {
                     "type": "integer"
                 }
             },
@@ -4439,25 +4439,25 @@
                 "type"
             ],
             "properties": {
-                "preference": {
-                    "type": "integer"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "ttl": {
-                    "type": "integer"
-                },
                 "type": {
-                    "type": "string"
-                },
-                "exchange": {
                     "type": "string"
                 },
                 "name": {
                     "type": "string"
                 },
+                "id": {
+                    "type": "integer"
+                },
+                "exchange": {
+                    "type": "string"
+                },
                 "domainId": {
+                    "type": "integer"
+                },
+                "ttl": {
+                    "type": "integer"
+                },
+                "preference": {
                     "type": "integer"
                 }
             },
@@ -4468,8 +4468,8 @@
                 "exchange"
             ],
             "properties": {
-                "ttl": {
-                    "type": "integer"
+                "exchange": {
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
@@ -4477,8 +4477,8 @@
                 "preference": {
                     "type": "integer"
                 },
-                "exchange": {
-                    "type": "string"
+                "ttl": {
+                    "type": "integer"
                 }
             },
             "type": "object"
@@ -4494,8 +4494,89 @@
         },
         "Stock": {
             "properties": {
+                "semi_annually_location_premium": {
+                    "type": "number"
+                },
+                "monthly_location_premium": {
+                    "type": "number"
+                },
+                "product_semi_annually_price": {
+                    "type": "number"
+                },
+                "product_memory": {
+                    "type": "string"
+                },
+                "product_biennial_price": {
+                    "type": "number"
+                },
                 "annually_location_premium": {
                     "type": "number"
+                },
+                "quarterly_location_premium": {
+                    "type": "number"
+                },
+                "data_center": {
+                    "type": "string"
+                },
+                "product_hourly_price": {
+                    "type": "number"
+                },
+                "product_original_price": {
+                    "type": "number"
+                },
+                "product_cpu_cores": {
+                    "type": "string"
+                },
+                "product_drive": {
+                    "type": "string"
+                },
+                "biennial_location_premium": {
+                    "type": "number"
+                },
+                "core": {
+                    "type": "boolean"
+                },
+                "product_id": {
+                    "type": "integer"
+                },
+                "product_quarterly_price": {
+                    "type": "number"
+                },
+                "triennial_location_premium": {
+                    "type": "number"
+                },
+                "product_cpu": {
+                    "type": "string"
+                },
+                "product_name": {
+                    "type": "string"
+                },
+                "edge": {
+                    "type": "boolean"
+                },
+                "product_monthly_price": {
+                    "type": "number"
+                },
+                "product_gpu": {
+                    "type": "string"
+                },
+                "stock": {
+                    "type": "string"
+                },
+                "product_display_price": {
+                    "type": "number"
+                },
+                "hourly_location_premium": {
+                    "type": "number"
+                },
+                "product_on_sale": {
+                    "type": "boolean"
+                },
+                "product_annually_price": {
+                    "type": "number"
+                },
+                "product_bandwidth": {
+                    "type": "string"
                 },
                 "product_disabled_billing_periods": {
                     "type": "array",
@@ -4503,89 +4584,8 @@
                         "type": "string"
                     }
                 },
-                "product_gpu": {
-                    "type": "string"
-                },
-                "quarterly_location_premium": {
-                    "type": "number"
-                },
-                "hourly_location_premium": {
-                    "type": "number"
-                },
-                "product_original_price": {
-                    "type": "number"
-                },
-                "product_name": {
-                    "type": "string"
-                },
-                "triennial_location_premium": {
-                    "type": "number"
-                },
-                "product_cpu_cores": {
-                    "type": "string"
-                },
-                "semi_annually_location_premium": {
-                    "type": "number"
-                },
-                "core": {
-                    "type": "boolean"
-                },
-                "product_cpu": {
-                    "type": "string"
-                },
-                "monthly_location_premium": {
-                    "type": "number"
-                },
-                "product_biennial_price": {
-                    "type": "number"
-                },
-                "product_hourly_price": {
-                    "type": "number"
-                },
-                "product_bandwidth": {
-                    "type": "string"
-                },
                 "product_triennial_price": {
                     "type": "number"
-                },
-                "product_drive": {
-                    "type": "string"
-                },
-                "product_on_sale": {
-                    "type": "boolean"
-                },
-                "product_memory": {
-                    "type": "string"
-                },
-                "stock": {
-                    "type": "string"
-                },
-                "product_quarterly_price": {
-                    "type": "number"
-                },
-                "product_semi_annually_price": {
-                    "type": "number"
-                },
-                "product_id": {
-                    "type": "integer"
-                },
-                "edge": {
-                    "type": "boolean"
-                },
-                "product_annually_price": {
-                    "type": "number"
-                },
-                "product_display_price": {
-                    "type": "number"
-                },
-                "biennial_location_premium": {
-                    "type": "number"
-                },
-                "product_monthly_price": {
-                    "type": "number"
-                },
-                "data_center": {
-                    "type": "string"
                 }
             },
             "type": "object"
@@ -4595,24 +4595,24 @@
                 "location": {
                     "$ref": "#/definitions/CityStateCountry"
                 },
+                "code": {
+                    "type": "string"
+                },
                 "edge": {
                     "type": "boolean"
                 },
                 "core": {
                     "type": "boolean"
-                },
-                "code": {
-                    "type": "string"
                 }
             },
             "type": "object"
         },
         "CityStateCountry": {
             "properties": {
-                "country": {
+                "state": {
                     "type": "string"
                 },
-                "state": {
+                "country": {
                     "type": "string"
                 },
                 "city": {
@@ -4623,20 +4623,20 @@
         },
         "Order-dump": {
             "properties": {
-                "owner": {
-                    "type": "string"
-                },
-                "total": {
-                    "type": "number"
-                },
-                "status": {
-                    "type": "string"
-                },
                 "orderId": {
                     "type": "integer"
                 },
                 "info": {
                     "type": "object"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "total": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -4647,14 +4647,14 @@
                 "userId"
             ],
             "properties": {
-                "userId": {
-                    "type": "integer"
-                },
                 "permissions": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     }
+                },
+                "userId": {
+                    "type": "integer"
                 }
             },
             "type": "object"
@@ -4669,8 +4669,89 @@
         },
         "ProductInfo": {
             "properties": {
+                "semi_annually_location_premium": {
+                    "type": "number"
+                },
+                "monthly_location_premium": {
+                    "type": "number"
+                },
+                "product_semi_annually_price": {
+                    "type": "number"
+                },
+                "product_memory": {
+                    "type": "string"
+                },
+                "product_biennial_price": {
+                    "type": "number"
+                },
                 "annually_location_premium": {
                     "type": "number"
+                },
+                "quarterly_location_premium": {
+                    "type": "number"
+                },
+                "data_center": {
+                    "type": "string"
+                },
+                "product_hourly_price": {
+                    "type": "number"
+                },
+                "product_original_price": {
+                    "type": "number"
+                },
+                "product_cpu_cores": {
+                    "type": "string"
+                },
+                "product_drive": {
+                    "type": "string"
+                },
+                "biennial_location_premium": {
+                    "type": "number"
+                },
+                "core": {
+                    "type": "boolean"
+                },
+                "product_id": {
+                    "type": "integer"
+                },
+                "product_quarterly_price": {
+                    "type": "number"
+                },
+                "triennial_location_premium": {
+                    "type": "number"
+                },
+                "product_cpu": {
+                    "type": "string"
+                },
+                "product_name": {
+                    "type": "string"
+                },
+                "edge": {
+                    "type": "boolean"
+                },
+                "product_monthly_price": {
+                    "type": "number"
+                },
+                "product_gpu": {
+                    "type": "string"
+                },
+                "stock": {
+                    "type": "string"
+                },
+                "product_display_price": {
+                    "type": "number"
+                },
+                "hourly_location_premium": {
+                    "type": "number"
+                },
+                "product_on_sale": {
+                    "type": "boolean"
+                },
+                "product_annually_price": {
+                    "type": "number"
+                },
+                "product_bandwidth": {
+                    "type": "string"
                 },
                 "product_disabled_billing_periods": {
                     "type": "array",
@@ -4678,89 +4759,8 @@
                         "type": "string"
                     }
                 },
-                "product_gpu": {
-                    "type": "string"
-                },
-                "quarterly_location_premium": {
-                    "type": "number"
-                },
-                "hourly_location_premium": {
-                    "type": "number"
-                },
-                "product_original_price": {
-                    "type": "number"
-                },
-                "product_name": {
-                    "type": "string"
-                },
-                "triennial_location_premium": {
-                    "type": "number"
-                },
-                "product_cpu_cores": {
-                    "type": "string"
-                },
-                "semi_annually_location_premium": {
-                    "type": "number"
-                },
-                "core": {
-                    "type": "boolean"
-                },
-                "product_cpu": {
-                    "type": "string"
-                },
-                "monthly_location_premium": {
-                    "type": "number"
-                },
-                "product_biennial_price": {
-                    "type": "number"
-                },
-                "product_hourly_price": {
-                    "type": "number"
-                },
-                "product_bandwidth": {
-                    "type": "string"
-                },
                 "product_triennial_price": {
                     "type": "number"
-                },
-                "product_drive": {
-                    "type": "string"
-                },
-                "product_on_sale": {
-                    "type": "boolean"
-                },
-                "product_memory": {
-                    "type": "string"
-                },
-                "stock": {
-                    "type": "string"
-                },
-                "product_quarterly_price": {
-                    "type": "number"
-                },
-                "product_semi_annually_price": {
-                    "type": "number"
-                },
-                "product_id": {
-                    "type": "integer"
-                },
-                "edge": {
-                    "type": "boolean"
-                },
-                "product_annually_price": {
-                    "type": "number"
-                },
-                "product_display_price": {
-                    "type": "number"
-                },
-                "biennial_location_premium": {
-                    "type": "number"
-                },
-                "product_monthly_price": {
-                    "type": "number"
-                },
-                "data_center": {
-                    "type": "string"
                 }
             },
             "type": "object"
@@ -4776,6 +4776,12 @@
         },
         "Option": {
             "properties": {
+                "currency": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
                 "expressions": {
                     "type": "array",
                     "items": {
@@ -4788,17 +4794,11 @@
                 "monthlyPrice": {
                     "type": "number"
                 },
-                "name": {
-                    "type": "string"
-                },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     }
-                },
-                "currency": {
-                    "type": "string"
                 }
             },
             "type": "object"
@@ -4819,13 +4819,10 @@
         },
         "Deployment": {
             "properties": {
-                "price": {
-                    "type": "number"
+                "empty": {
+                    "type": "boolean"
                 },
                 "orderNumber": {
-                    "type": "string"
-                },
-                "deploymentName": {
                     "type": "string"
                 },
                 "startedProvisioning": {
@@ -4834,14 +4831,17 @@
                 "deploymentId": {
                     "type": "integer"
                 },
+                "deploymentName": {
+                    "type": "string"
+                },
                 "deploymentConfiguration": {
                     "type": "array",
                     "items": {
                         "type": "object"
                     }
                 },
-                "empty": {
-                    "type": "boolean"
+                "price": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -4869,14 +4869,6 @@
                         "type": "string"
                     }
                 },
-                "quantity": {
-                    "type": "integer",
-                    "default": 1
-                },
-                "locationCode": {
-                    "type": "string",
-                    "default": ""
-                },
                 "billingPeriod": {
                     "type": "string",
                     "description": "must be one of ['monthly', 'quarterly', 'semi-annually', 'annually', 'biennial', 'triennial', 'hourly']",
@@ -4894,6 +4886,14 @@
                     "items": {
                         "type": "string"
                     }
+                },
+                "locationCode": {
+                    "type": "string",
+                    "default": ""
+                },
+                "quantity": {
+                    "type": "integer",
+                    "default": 1
                 }
             },
             "type": "object"
@@ -5059,11 +5059,11 @@
                 "name": {
                     "type": "string"
                 },
-                "sshKeyId": {
-                    "type": "integer"
-                },
                 "publicKey": {
                     "type": "string"
+                },
+                "sshKeyId": {
+                    "type": "integer"
                 }
             },
             "type": "object"
@@ -5081,23 +5081,20 @@
         },
         "VlanCreate": {
             "properties": {
+                "description": {
+                    "type": "string"
+                },
                 "deviceIds": {
                     "type": "array",
                     "items": {
                         "type": "integer"
                     }
-                },
-                "description": {
-                    "type": "string"
                 }
             },
             "type": "object"
         },
         "Vlan": {
             "properties": {
-                "vlanNum": {
-                    "type": "integer"
-                },
                 "vlanId": {
                     "type": "integer"
                 },
@@ -5107,17 +5104,20 @@
                 "vlanTag": {
                     "type": "integer"
                 },
+                "pendingDevices": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
                 "deviceIds": {
                     "type": "array",
                     "items": {
                         "type": "integer"
                     }
                 },
-                "pendingDevices": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
+                "vlanNum": {
+                    "type": "integer"
                 },
                 "description": {
                     "type": "string"

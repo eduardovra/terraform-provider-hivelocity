@@ -139,7 +139,9 @@ func waitForDeviceReload(d *schema.ResourceData, hv *Client, deviceId int32) (in
 			}
 
 			if device.Metadata != nil {
-				metadata := device.Metadata.(map[string]string)
+				deviceMetadata := device.Metadata
+				metadataValue := *deviceMetadata
+				metadata := metadataValue.(map[string]string)
 				spsStatus, ok := metadata["sps_status"]
 				if ok && spsStatus == "InUse" {
 					return device, "ok", nil

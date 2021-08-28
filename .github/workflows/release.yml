@@ -26,12 +26,8 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: 1.15
-      #- name: Download swagger-codegen-cli
-      #  run: curl -o swagger-codegen-cli.jar https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.15/swagger-codegen-cli-2.4.15.jar
-      - name: Generate API client sources
-        run: make client #java -jar swagger-codegen-cli.jar generate -i swagger.json -l go -o ./hivelocity-client-go
-      - name: Generate Hashicorp Registry documentation
-        run: make docs #go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs
+      - name: Generate API client sources and Hashicorp Registry documentation
+        run: make docs
       - name: Import GPG key
         id: import_gpg
         uses: hashicorp/ghaction-import-gpg@v2.1.0
