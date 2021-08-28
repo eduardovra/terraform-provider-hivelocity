@@ -15,20 +15,20 @@ ifeq ($(GOARCH),)
 	GOARCH:=$(shell go env GOHOSTARCH)
 endif
 
-OSARCH:=$(GOOS)_$(GOARCH)
-BUILDPATH:=~/.terraform.d/plugins/registry.terraform.io/hivelocity/hivelocity/0.1.0/$(OSARCH)
-SWAGGER_CODEGEN:=https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.15/swagger-codegen-cli-2.4.15.jar
+OS_ARCH:=$(GOOS)_$(GOARCH)
+BUILDPATH:=$(HOME)/.terraform.d/plugins/registry.terraform.io/hivelocity/hivelocity/0.1.0/$(OS_ARCH)
+SWAGGER_CODEGEN_CLI:=https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.15/swagger-codegen-cli-2.4.15.jar
 
 default: build
 
 install: build
 	go install
 
-build: client
+build: client hivelocity/*
 	go build -o $(BUILDPATH)/terraform-provider-hivelocity
 
 swagger-codegen-cli.jar:
-	curl -o swagger-codegen-cli.jar $(SWAGGER_CODEGEN)
+	curl -o swagger-codegen-cli.jar $(SWAGGER_CODEGEN_CLI)
 
 client: swagger-codegen-cli.jar
 	rm -rf hivelocity-client-go
