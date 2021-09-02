@@ -36,6 +36,8 @@ If there were changes in the provider, the documentation will have to be updated
 
 ## Rebuilding the project
 
+https://www.terraform.io/upgrade-guides/0-13.html#new-filesystem-layout-for-local-copies-of-providers
+
 Whenever you update the project run the following cmd to add the changes to your Terraform plugins:
 
 `go build -o ~/.terraform.d/plugins/registry.terraform.io/hivelocity/hivelocity/0.1.0/darwin_amd64/terraform-provider-hivelocity`

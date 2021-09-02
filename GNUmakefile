@@ -18,6 +18,7 @@ endif
 OS_ARCH:=$(GOOS)_$(GOARCH)
 BUILDPATH:=$(HOME)/.terraform.d/plugins/registry.terraform.io/hivelocity/hivelocity/0.1.0/$(OS_ARCH)
 SWAGGER_CODEGEN_CLI:=https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.15/swagger-codegen-cli-2.4.15.jar
+EXAMPLE=examples/resources/hivelocity_bare_metal_device
 
 default: build
 
@@ -40,3 +41,9 @@ docs: build
 
 swagger:
 	curl -o swagger.json $(HIVELOCITY_API_URL)/swagger.json?partner=1
+
+terraform_init: build
+	cd $(EXAMPLE) && terraform init -plugin-dir ~/.terraform.d/plugins/
+
+terraform_apply:
+	cd $(EXAMPLE) && terraform apply

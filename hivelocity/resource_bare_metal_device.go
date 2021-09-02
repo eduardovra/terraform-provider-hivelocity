@@ -55,7 +55,6 @@ func resourceBareMetalDevice() *schema.Resource {
 			"os_name": &schema.Schema{
 				Type:     schema.TypeString,
 				Required: true,
-				ForceNew: true,
 			},
 			"location_name": &schema.Schema{
 				Type:     schema.TypeString,
@@ -89,9 +88,10 @@ func resourceBareMetalDevice() *schema.Resource {
 				},
 			},
 			"script": &schema.Schema{
-				Type:     schema.TypeString,
-				Computed: true,
+				Type: schema.TypeString,
+				//Computed: true,
 				Optional: true,
+				Default:  nil,
 			},
 			"period": &schema.Schema{
 				Type:     schema.TypeString,
@@ -192,6 +192,10 @@ func resourceBareMetalDeviceRead(ctx context.Context, d *schema.ResourceData, m 
 	d.Set("public_ssh_key_id", deviceResponse.PublicSshKeyId)
 	d.Set("script", deviceResponse.Script)
 
+	if deviceResponse.LocationName == "DEV-TPA1" {
+		d.Set("location_name", "TPA1")
+	}
+
 	return diags
 }
 
@@ -206,35 +210,33 @@ func resourceBareMetalDeviceUpdate(ctx context.Context, d *schema.ResourceData, 
 	payload := swagger.BareMetalDeviceUpdate{}
 	reload_required := false
 
+	tags, err := getTags(d)
+	if err != nil {
+		return diag.FromErr(err)
+	}
+	payload.Tags = tags
+
+	hostname := d.Get("hostname").(string)
+	payload.Hostname = hostname
 	if d.HasChange("hostname") {
-		hostname := d.Get("hostname").(string)
-		payload.Hostname = hostname
 		reload_required = true
 	}
 
-	if d.HasChange("tags") {
-		tags, err := getTags(d)
-		if err != nil {
-			return diag.FromErr(err)
-		}
-		payload.Tags = tags
-	}
-
+	osName := d.Get("os_name").(string)
+	payload.OsName = osName
 	if d.HasChange("os_name") {
-		osName := d.Get("os_name").(string)
-		payload.OsName = osName
 		reload_required = true
 	}
 
+	publicSshKeyId := d.Get("public_ssh_key_id").(int)
+	payload.PublicSshKeyId = int32(publicSshKeyId)
 	if d.HasChange("public_ssh_key_id") {
-		publicSshKeyId := d.Get("public_ssh_key_id").(int32)
-		payload.PublicSshKeyId = publicSshKeyId
 		reload_required = true
 	}
 
+	script := d.Get("script").(string)
+	payload.Script = script
 	if d.HasChange("script") {
-		script := d.Get("script").(string)
-		payload.Script = script
 		reload_required = true
 	}
 

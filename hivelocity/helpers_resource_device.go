@@ -125,35 +125,28 @@ func waitForDevicePowerOff(d *schema.ResourceData, hv *Client, deviceId int32) (
 
 func waitForDeviceReload(d *schema.ResourceData, hv *Client, deviceId int32) (interface{}, error) {
 	waitForDevice := &resource.StateChangeConf{
-		Pending: []string{
-			"waiting",
-		},
-		Target: []string{
-			"ok",
-		},
+		Pending: []string{"waiting"},
+		Target:  []string{"ok"},
 		Refresh: func() (interface{}, string, error) {
 			device, _, err := hv.client.DeviceApi.GetDeviceIdResource(hv.auth, deviceId, nil)
-
 			if err != nil {
 				return 0, "", err
 			}
-
 			if device.Metadata != nil {
-				deviceMetadata := device.Metadata
-				metadataValue := *deviceMetadata
-				metadata := metadataValue.(map[string]string)
+				metadataValue := *(device.Metadata)
+				metadata := metadataValue.(map[string]interface{})
 				spsStatus, ok := metadata["sps_status"]
 				if ok && spsStatus == "InUse" {
 					return device, "ok", nil
 				}
 			}
-
 			return nil, "waiting", nil
 		},
 		Timeout:                   d.Timeout(schema.TimeoutCreate),
 		Delay:                     30 * time.Second,
 		MinTimeout:                10 * time.Second,
 		ContinuousTargetOccurence: 1,
+		NotFoundChecks:            360, // 1h timeout / 10s delay between requests
 	}
 	return waitForDevice.WaitForState()
 }
