@@ -28,9 +28,12 @@ Class | Method | HTTP request | Description
 *BareMetalDevicesApi* | [**DeleteBareMetalDeviceIdResource**](docs/BareMetalDevicesApi.md#deletebaremetaldeviceidresource) | **Delete** /bare-metal-devices/{deviceId} | Cancel the specified bare metal device
 *BareMetalDevicesApi* | [**GetBareMetalDeviceIdResource**](docs/BareMetalDevicesApi.md#getbaremetaldeviceidresource) | **Get** /bare-metal-devices/{deviceId} | Return bare metal device
 *BareMetalDevicesApi* | [**GetBareMetalDeviceResource**](docs/BareMetalDevicesApi.md#getbaremetaldeviceresource) | **Get** /bare-metal-devices/ | Return a list with all servers as bare metal
+*BareMetalDevicesApi* | [**PostBareMetalDeviceBatchResource**](docs/BareMetalDevicesApi.md#postbaremetaldevicebatchresource) | **Post** /bare-metal-devices/batch | Deploy a list of new bare metal servers
 *BareMetalDevicesApi* | [**PostBareMetalDeviceResource**](docs/BareMetalDevicesApi.md#postbaremetaldeviceresource) | **Post** /bare-metal-devices/ | Deploy a new bare metal server
 *BareMetalDevicesApi* | [**PutBareMetalDeviceIdResource**](docs/BareMetalDevicesApi.md#putbaremetaldeviceidresource) | **Put** /bare-metal-devices/{deviceId} | Update a bare metal device
 *BillingInfoApi* | [**GetBillingInfoResource**](docs/BillingInfoApi.md#getbillinginforesource) | **Get** /billing-info/ | Return a list with all Billing Info
+*BillingInfoApi* | [**PostBillingInfoResource**](docs/BillingInfoApi.md#postbillinginforesource) | **Post** /billing-info/ | Create verification for credit card with all Billing Info
+*BillingInfoApi* | [**PutBillingInfoResource**](docs/BillingInfoApi.md#putbillinginforesource) | **Put** /billing-info/ | Verify credit card with all Billing Info
 *ContactApi* | [**DeleteContactIdResource**](docs/ContactApi.md#deletecontactidresource) | **Delete** /contact/{contactId} | Delete a Contact
 *ContactApi* | [**GetContactIdResource**](docs/ContactApi.md#getcontactidresource) | **Get** /contact/{contactId} | Return details of a specific Contact
 *ContactApi* | [**GetContactResource**](docs/ContactApi.md#getcontactresource) | **Get** /contact/ | Return a list with all Contacts
@@ -77,6 +80,8 @@ Class | Method | HTTP request | Description
 *DomainsApi* | [**GetDomainResource**](docs/DomainsApi.md#getdomainresource) | **Get** /domains/ | Return the domains of a client
 *DomainsApi* | [**GetMxRecordIdResource**](docs/DomainsApi.md#getmxrecordidresource) | **Get** /domains/{domainID}/mx-record/{recordId} | Return Single MX Records found for given id
 *DomainsApi* | [**GetMxRecordResource**](docs/DomainsApi.md#getmxrecordresource) | **Get** /domains/{domainID}/mx-record | Return all MX Records found for given zone
+*DomainsApi* | [**GetPtrRecordIdResource**](docs/DomainsApi.md#getptrrecordidresource) | **Get** /domains/ptr/{recordId} | 
+*DomainsApi* | [**GetPtrRecordResource**](docs/DomainsApi.md#getptrrecordresource) | **Get** /domains/ptr | Return the PTR records of a client
 *DomainsApi* | [**PostARecordResource**](docs/DomainsApi.md#postarecordresource) | **Post** /domains/{domainID}/a-record | Create a new A Record for given zone
 *DomainsApi* | [**PostAaaaRecordResource**](docs/DomainsApi.md#postaaaarecordresource) | **Post** /domains/{domainID}/aaaa-record | Create a new AAAA Record for given zone
 *DomainsApi* | [**PostDomainResource**](docs/DomainsApi.md#postdomainresource) | **Post** /domains/ | Create a new domain
@@ -84,11 +89,17 @@ Class | Method | HTTP request | Description
 *DomainsApi* | [**PutARecordIdResource**](docs/DomainsApi.md#putarecordidresource) | **Put** /domains/{domainID}/a-record/{recordId} | Update an A Record for given zone
 *DomainsApi* | [**PutAaaaRecordIdResource**](docs/DomainsApi.md#putaaaarecordidresource) | **Put** /domains/{domainID}/aaaa-record/{recordId} | Update an AAAA Record for given id
 *DomainsApi* | [**PutMxRecordIdResource**](docs/DomainsApi.md#putmxrecordidresource) | **Put** /domains/{domainID}/mx-record/{recordId} | Update an MX Record for given zone
+*DomainsApi* | [**PutPtrRecordIdResource**](docs/DomainsApi.md#putptrrecordidresource) | **Put** /domains/ptr/{recordId} | 
 *InventoryApi* | [**GetLocationResource**](docs/InventoryApi.md#getlocationresource) | **Get** /inventory/locations | Return sps facilities and locations
 *InventoryApi* | [**GetStockByProductResource**](docs/InventoryApi.md#getstockbyproductresource) | **Get** /inventory/product/{productId} | Return a structured sps stock data, grouped by city or facility code for a single product
 *InventoryApi* | [**GetStockResource**](docs/InventoryApi.md#getstockresource) | **Get** /inventory/product | Return structured sps stock data, grouped by city or facility code for all products
 *OrderApi* | [**GetOrderIdResource**](docs/OrderApi.md#getorderidresource) | **Get** /order/{orderId} | Return details of a specific Order
 *OrderApi* | [**GetOrderResource**](docs/OrderApi.md#getorderresource) | **Get** /order/ | Return a list with all Orders
+*OrderGroupsApi* | [**DeleteOrderGroupIdResource**](docs/OrderGroupsApi.md#deleteordergroupidresource) | **Delete** /order-groups/{orderGroupId} | Delete the specified Order Group
+*OrderGroupsApi* | [**GetOrderGroupIdResource**](docs/OrderGroupsApi.md#getordergroupidresource) | **Get** /order-groups/{orderGroupId} | Return an Order Group
+*OrderGroupsApi* | [**GetOrderGroupResource**](docs/OrderGroupsApi.md#getordergroupresource) | **Get** /order-groups/ | Return a list with all Order Groups
+*OrderGroupsApi* | [**PostOrderGroupResource**](docs/OrderGroupsApi.md#postordergroupresource) | **Post** /order-groups/ | Create a new Order Group
+*OrderGroupsApi* | [**PutOrderGroupIdResource**](docs/OrderGroupsApi.md#putordergroupidresource) | **Put** /order-groups/{orderGroupId} | Update an Order Group
 *PermissionApi* | [**GetPermissionAllResource**](docs/PermissionApi.md#getpermissionallresource) | **Get** /permission/ | Endpoint to get All Permissions
 *PermissionApi* | [**GetPermissionContactResource**](docs/PermissionApi.md#getpermissioncontactresource) | **Get** /permission/contact/{contactId} | Endpoint to get Contact Permissions
 *PermissionApi* | [**GetPermissionUserResource**](docs/PermissionApi.md#getpermissionuserresource) | **Get** /permission/user | Endpoint to get User Permissions
@@ -129,13 +140,17 @@ Class | Method | HTTP request | Description
  - [Bandwidth](docs/Bandwidth.md)
  - [BandwidthImage](docs/BandwidthImage.md)
  - [BareMetalDevice](docs/BareMetalDevice.md)
+ - [BareMetalDeviceBatch](docs/BareMetalDeviceBatch.md)
+ - [BareMetalDeviceBatchCreate](docs/BareMetalDeviceBatchCreate.md)
  - [BareMetalDeviceCreate](docs/BareMetalDeviceCreate.md)
  - [BareMetalDeviceUpdate](docs/BareMetalDeviceUpdate.md)
  - [BillingInfo](docs/BillingInfo.md)
+ - [BillingInfoVerification](docs/BillingInfoVerification.md)
  - [CityStateCountry](docs/CityStateCountry.md)
  - [ContactCreate](docs/ContactCreate.md)
  - [ContactDump](docs/ContactDump.md)
  - [ContactUpdate](docs/ContactUpdate.md)
+ - [Credit](docs/Credit.md)
  - [Deployment](docs/Deployment.md)
  - [DeploymentCustomization](docs/DeploymentCustomization.md)
  - [DeploymentStart](docs/DeploymentStart.md)
@@ -156,11 +171,15 @@ Class | Method | HTTP request | Description
  - [IpmiSensor](docs/IpmiSensor.md)
  - [IpmiValidLogin](docs/IpmiValidLogin.md)
  - [Location](docs/Location.md)
+ - [MxRecordCreate](docs/MxRecordCreate.md)
  - [MxRecordReturn](docs/MxRecordReturn.md)
- - [MxValue](docs/MxValue.md)
+ - [MxRecordUpdate](docs/MxRecordUpdate.md)
  - [Option](docs/Option.md)
  - [Options](docs/Options.md)
  - [OrderDump](docs/OrderDump.md)
+ - [OrderGroup](docs/OrderGroup.md)
+ - [OrderGroupCreate](docs/OrderGroupCreate.md)
+ - [OrderGroupUpdate](docs/OrderGroupUpdate.md)
  - [Password](docs/Password.md)
  - [PasswordRequest](docs/PasswordRequest.md)
  - [PasswordResponse](docs/PasswordResponse.md)
@@ -168,13 +187,10 @@ Class | Method | HTTP request | Description
  - [PermissionReturn](docs/PermissionReturn.md)
  - [ProductInfo](docs/ProductInfo.md)
  - [ProductOption](docs/ProductOption.md)
- - [RecordValue](docs/RecordValue.md)
+ - [PtrRecordReturn](docs/PtrRecordReturn.md)
+ - [PtrRecordUpdate](docs/PtrRecordUpdate.md)
  - [ServiceDump](docs/ServiceDump.md)
  - [ServiceOption](docs/ServiceOption.md)
- - [SingleARecordReturn](docs/SingleARecordReturn.md)
- - [SingleMxRecordCreate](docs/SingleMxRecordCreate.md)
- - [SingleMxRecordReturn](docs/SingleMxRecordReturn.md)
- - [SingleMxRecordUpdate](docs/SingleMxRecordUpdate.md)
  - [SshKey](docs/SshKey.md)
  - [SshKeyResponse](docs/SshKeyResponse.md)
  - [SshKeyUpdate](docs/SshKeyUpdate.md)

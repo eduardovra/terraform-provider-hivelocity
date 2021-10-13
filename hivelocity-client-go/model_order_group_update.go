@@ -9,9 +9,6 @@
 
 package swagger
 
-type SingleMxRecordCreate struct {
-	Exchange string `json:"exchange"`
-	Ttl int32 `json:"ttl"`
+type OrderGroupUpdate struct {
 	Name string `json:"name"`
-	Preference int32 `json:"preference"`
 }

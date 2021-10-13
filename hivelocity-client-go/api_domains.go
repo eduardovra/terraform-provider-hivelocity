@@ -373,20 +373,20 @@ DomainsApiService Return Single A Records found for given id
  * @param optional nil or *DomainsApiGetARecordIdResourceOpts - Optional Parameters:
      * @param "XFields" (optional.String) -  An optional fields mask
 
-@return SingleARecordReturn
+@return ARecordReturn
 */
 
 type DomainsApiGetARecordIdResourceOpts struct { 
 	XFields optional.String
 }
 
-func (a *DomainsApiService) GetARecordIdResource(ctx context.Context, domainID int32, recordId int32, localVarOptionals *DomainsApiGetARecordIdResourceOpts) (SingleARecordReturn, *http.Response, error) {
+func (a *DomainsApiService) GetARecordIdResource(ctx context.Context, domainID int32, recordId int32, localVarOptionals *DomainsApiGetARecordIdResourceOpts) (ARecordReturn, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue SingleARecordReturn
+		localVarReturnValue ARecordReturn
 	)
 
 	// create path and map variables
@@ -462,7 +462,7 @@ func (a *DomainsApiService) GetARecordIdResource(ctx context.Context, domainID i
 		}
 		
 		if localVarHttpResponse.StatusCode == 200 {
-			var v SingleARecordReturn
+			var v ARecordReturn
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -597,20 +597,20 @@ DomainsApiService Return Single AAAA Records found for given id
  * @param optional nil or *DomainsApiGetAaaaRecordIdResourceOpts - Optional Parameters:
      * @param "XFields" (optional.String) -  An optional fields mask
 
-@return SingleARecordReturn
+@return AaaaRecordReturn
 */
 
 type DomainsApiGetAaaaRecordIdResourceOpts struct { 
 	XFields optional.String
 }
 
-func (a *DomainsApiService) GetAaaaRecordIdResource(ctx context.Context, domainID int32, recordId int32, localVarOptionals *DomainsApiGetAaaaRecordIdResourceOpts) (SingleARecordReturn, *http.Response, error) {
+func (a *DomainsApiService) GetAaaaRecordIdResource(ctx context.Context, domainID int32, recordId int32, localVarOptionals *DomainsApiGetAaaaRecordIdResourceOpts) (AaaaRecordReturn, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue SingleARecordReturn
+		localVarReturnValue AaaaRecordReturn
 	)
 
 	// create path and map variables
@@ -686,7 +686,7 @@ func (a *DomainsApiService) GetAaaaRecordIdResource(ctx context.Context, domainI
 		}
 		
 		if localVarHttpResponse.StatusCode == 200 {
-			var v SingleARecordReturn
+			var v AaaaRecordReturn
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -1041,20 +1041,20 @@ DomainsApiService Return Single MX Records found for given id
  * @param optional nil or *DomainsApiGetMxRecordIdResourceOpts - Optional Parameters:
      * @param "XFields" (optional.String) -  An optional fields mask
 
-@return SingleMxRecordReturn
+@return MxRecordReturn
 */
 
 type DomainsApiGetMxRecordIdResourceOpts struct { 
 	XFields optional.String
 }
 
-func (a *DomainsApiService) GetMxRecordIdResource(ctx context.Context, domainID int32, recordId int32, localVarOptionals *DomainsApiGetMxRecordIdResourceOpts) (SingleMxRecordReturn, *http.Response, error) {
+func (a *DomainsApiService) GetMxRecordIdResource(ctx context.Context, domainID int32, recordId int32, localVarOptionals *DomainsApiGetMxRecordIdResourceOpts) (MxRecordReturn, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue SingleMxRecordReturn
+		localVarReturnValue MxRecordReturn
 	)
 
 	// create path and map variables
@@ -1130,7 +1130,7 @@ func (a *DomainsApiService) GetMxRecordIdResource(ctx context.Context, domainID 
 		}
 		
 		if localVarHttpResponse.StatusCode == 200 {
-			var v SingleMxRecordReturn
+			var v MxRecordReturn
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -1258,6 +1258,226 @@ func (a *DomainsApiService) GetMxRecordResource(ctx context.Context, domainID in
 }
 
 /* 
+DomainsApiService
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param recordId
+ * @param optional nil or *DomainsApiGetPtrRecordIdResourceOpts - Optional Parameters:
+     * @param "XFields" (optional.String) -  An optional fields mask
+
+@return PtrRecordReturn
+*/
+
+type DomainsApiGetPtrRecordIdResourceOpts struct { 
+	XFields optional.String
+}
+
+func (a *DomainsApiService) GetPtrRecordIdResource(ctx context.Context, recordId int32, localVarOptionals *DomainsApiGetPtrRecordIdResourceOpts) (PtrRecordReturn, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue PtrRecordReturn
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/domains/ptr/{recordId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"recordId"+"}", fmt.Sprintf("%v", recordId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarOptionals != nil && localVarOptionals.XFields.IsSet() {
+		localVarHeaderParams["X-Fields"] = parameterToString(localVarOptionals.XFields.Value(), "")
+	}
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["X-API-KEY"] = key
+			
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		
+		if localVarHttpResponse.StatusCode == 200 {
+			var v PtrRecordReturn
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/* 
+DomainsApiService Return the PTR records of a client
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param optional nil or *DomainsApiGetPtrRecordResourceOpts - Optional Parameters:
+     * @param "XFields" (optional.String) -  An optional fields mask
+
+@return []PtrRecordReturn
+*/
+
+type DomainsApiGetPtrRecordResourceOpts struct { 
+	XFields optional.String
+}
+
+func (a *DomainsApiService) GetPtrRecordResource(ctx context.Context, localVarOptionals *DomainsApiGetPtrRecordResourceOpts) ([]PtrRecordReturn, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue []PtrRecordReturn
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/domains/ptr"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarOptionals != nil && localVarOptionals.XFields.IsSet() {
+		localVarHeaderParams["X-Fields"] = parameterToString(localVarOptionals.XFields.Value(), "")
+	}
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["X-API-KEY"] = key
+			
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		
+		if localVarHttpResponse.StatusCode == 200 {
+			var v []PtrRecordReturn
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/* 
 DomainsApiService Create a new A Record for given zone
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param domainID
@@ -1265,20 +1485,20 @@ DomainsApiService Create a new A Record for given zone
  * @param optional nil or *DomainsApiPostARecordResourceOpts - Optional Parameters:
      * @param "XFields" (optional.String) -  An optional fields mask
 
-@return SingleARecordReturn
+@return ARecordReturn
 */
 
 type DomainsApiPostARecordResourceOpts struct { 
 	XFields optional.String
 }
 
-func (a *DomainsApiService) PostARecordResource(ctx context.Context, domainID int32, payload ARecordCreate, localVarOptionals *DomainsApiPostARecordResourceOpts) (SingleARecordReturn, *http.Response, error) {
+func (a *DomainsApiService) PostARecordResource(ctx context.Context, domainID int32, payload ARecordCreate, localVarOptionals *DomainsApiPostARecordResourceOpts) (ARecordReturn, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue SingleARecordReturn
+		localVarReturnValue ARecordReturn
 	)
 
 	// create path and map variables
@@ -1355,7 +1575,7 @@ func (a *DomainsApiService) PostARecordResource(ctx context.Context, domainID in
 		}
 		
 		if localVarHttpResponse.StatusCode == 200 {
-			var v SingleARecordReturn
+			var v ARecordReturn
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -1379,20 +1599,20 @@ DomainsApiService Create a new AAAA Record for given zone
  * @param optional nil or *DomainsApiPostAaaaRecordResourceOpts - Optional Parameters:
      * @param "XFields" (optional.String) -  An optional fields mask
 
-@return SingleARecordReturn
+@return AaaaRecordReturn
 */
 
 type DomainsApiPostAaaaRecordResourceOpts struct { 
 	XFields optional.String
 }
 
-func (a *DomainsApiService) PostAaaaRecordResource(ctx context.Context, domainID int32, payload AaaaRecordCreate, localVarOptionals *DomainsApiPostAaaaRecordResourceOpts) (SingleARecordReturn, *http.Response, error) {
+func (a *DomainsApiService) PostAaaaRecordResource(ctx context.Context, domainID int32, payload AaaaRecordCreate, localVarOptionals *DomainsApiPostAaaaRecordResourceOpts) (AaaaRecordReturn, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue SingleARecordReturn
+		localVarReturnValue AaaaRecordReturn
 	)
 
 	// create path and map variables
@@ -1469,7 +1689,7 @@ func (a *DomainsApiService) PostAaaaRecordResource(ctx context.Context, domainID
 		}
 		
 		if localVarHttpResponse.StatusCode == 200 {
-			var v SingleARecordReturn
+			var v AaaaRecordReturn
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -1605,20 +1825,20 @@ DomainsApiService Create a new MX Record for given zone
  * @param optional nil or *DomainsApiPostMxRecordResourceOpts - Optional Parameters:
      * @param "XFields" (optional.String) -  An optional fields mask
 
-@return SingleMxRecordReturn
+@return MxRecordReturn
 */
 
 type DomainsApiPostMxRecordResourceOpts struct { 
 	XFields optional.String
 }
 
-func (a *DomainsApiService) PostMxRecordResource(ctx context.Context, domainID int32, payload SingleMxRecordCreate, localVarOptionals *DomainsApiPostMxRecordResourceOpts) (SingleMxRecordReturn, *http.Response, error) {
+func (a *DomainsApiService) PostMxRecordResource(ctx context.Context, domainID int32, payload MxRecordCreate, localVarOptionals *DomainsApiPostMxRecordResourceOpts) (MxRecordReturn, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue SingleMxRecordReturn
+		localVarReturnValue MxRecordReturn
 	)
 
 	// create path and map variables
@@ -1695,7 +1915,7 @@ func (a *DomainsApiService) PostMxRecordResource(ctx context.Context, domainID i
 		}
 		
 		if localVarHttpResponse.StatusCode == 200 {
-			var v SingleMxRecordReturn
+			var v MxRecordReturn
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -1720,20 +1940,20 @@ DomainsApiService Update an A Record for given zone
  * @param optional nil or *DomainsApiPutARecordIdResourceOpts - Optional Parameters:
      * @param "XFields" (optional.String) -  An optional fields mask
 
-@return SingleARecordReturn
+@return ARecordReturn
 */
 
 type DomainsApiPutARecordIdResourceOpts struct { 
 	XFields optional.String
 }
 
-func (a *DomainsApiService) PutARecordIdResource(ctx context.Context, domainID int32, recordId int32, payload ARecordUpdate, localVarOptionals *DomainsApiPutARecordIdResourceOpts) (SingleARecordReturn, *http.Response, error) {
+func (a *DomainsApiService) PutARecordIdResource(ctx context.Context, domainID int32, recordId int32, payload ARecordUpdate, localVarOptionals *DomainsApiPutARecordIdResourceOpts) (ARecordReturn, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue SingleARecordReturn
+		localVarReturnValue ARecordReturn
 	)
 
 	// create path and map variables
@@ -1811,7 +2031,7 @@ func (a *DomainsApiService) PutARecordIdResource(ctx context.Context, domainID i
 		}
 		
 		if localVarHttpResponse.StatusCode == 200 {
-			var v SingleARecordReturn
+			var v ARecordReturn
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -1836,20 +2056,20 @@ DomainsApiService Update an AAAA Record for given id
  * @param optional nil or *DomainsApiPutAaaaRecordIdResourceOpts - Optional Parameters:
      * @param "XFields" (optional.String) -  An optional fields mask
 
-@return SingleARecordReturn
+@return AaaaRecordReturn
 */
 
 type DomainsApiPutAaaaRecordIdResourceOpts struct { 
 	XFields optional.String
 }
 
-func (a *DomainsApiService) PutAaaaRecordIdResource(ctx context.Context, domainID int32, recordId int32, payload AaaaRecordUpdate, localVarOptionals *DomainsApiPutAaaaRecordIdResourceOpts) (SingleARecordReturn, *http.Response, error) {
+func (a *DomainsApiService) PutAaaaRecordIdResource(ctx context.Context, domainID int32, recordId int32, payload AaaaRecordUpdate, localVarOptionals *DomainsApiPutAaaaRecordIdResourceOpts) (AaaaRecordReturn, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue SingleARecordReturn
+		localVarReturnValue AaaaRecordReturn
 	)
 
 	// create path and map variables
@@ -1927,7 +2147,7 @@ func (a *DomainsApiService) PutAaaaRecordIdResource(ctx context.Context, domainI
 		}
 		
 		if localVarHttpResponse.StatusCode == 200 {
-			var v SingleARecordReturn
+			var v AaaaRecordReturn
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -1952,20 +2172,20 @@ DomainsApiService Update an MX Record for given zone
  * @param optional nil or *DomainsApiPutMxRecordIdResourceOpts - Optional Parameters:
      * @param "XFields" (optional.String) -  An optional fields mask
 
-@return SingleMxRecordReturn
+@return MxRecordReturn
 */
 
 type DomainsApiPutMxRecordIdResourceOpts struct { 
 	XFields optional.String
 }
 
-func (a *DomainsApiService) PutMxRecordIdResource(ctx context.Context, domainID int32, recordId int32, payload SingleMxRecordUpdate, localVarOptionals *DomainsApiPutMxRecordIdResourceOpts) (SingleMxRecordReturn, *http.Response, error) {
+func (a *DomainsApiService) PutMxRecordIdResource(ctx context.Context, domainID int32, recordId int32, payload MxRecordUpdate, localVarOptionals *DomainsApiPutMxRecordIdResourceOpts) (MxRecordReturn, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue SingleMxRecordReturn
+		localVarReturnValue MxRecordReturn
 	)
 
 	// create path and map variables
@@ -2043,7 +2263,121 @@ func (a *DomainsApiService) PutMxRecordIdResource(ctx context.Context, domainID 
 		}
 		
 		if localVarHttpResponse.StatusCode == 200 {
-			var v SingleMxRecordReturn
+			var v MxRecordReturn
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/* 
+DomainsApiService
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param recordId
+ * @param payload
+ * @param optional nil or *DomainsApiPutPtrRecordIdResourceOpts - Optional Parameters:
+     * @param "XFields" (optional.String) -  An optional fields mask
+
+@return PtrRecordReturn
+*/
+
+type DomainsApiPutPtrRecordIdResourceOpts struct { 
+	XFields optional.String
+}
+
+func (a *DomainsApiService) PutPtrRecordIdResource(ctx context.Context, recordId int32, payload PtrRecordUpdate, localVarOptionals *DomainsApiPutPtrRecordIdResourceOpts) (PtrRecordReturn, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue PtrRecordReturn
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/domains/ptr/{recordId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"recordId"+"}", fmt.Sprintf("%v", recordId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarOptionals != nil && localVarOptionals.XFields.IsSet() {
+		localVarHeaderParams["X-Fields"] = parameterToString(localVarOptionals.XFields.Value(), "")
+	}
+	// body params
+	localVarPostBody = &payload
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["X-API-KEY"] = key
+			
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		
+		if localVarHttpResponse.StatusCode == 200 {
+			var v PtrRecordReturn
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()

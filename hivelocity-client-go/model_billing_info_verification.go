@@ -9,7 +9,8 @@
 
 package swagger
 
-type RecordValue struct {
-	Address string `json:"address,omitempty"`
-	Id int32 `json:"id,omitempty"`
+type BillingInfoVerification struct {
+	VerificationAmount float32 `json:"verificationAmount,omitempty"`
+	Id int32 `json:"id"`
+	ProvisionOrderId int32 `json:"provisionOrderId,omitempty"`
 }

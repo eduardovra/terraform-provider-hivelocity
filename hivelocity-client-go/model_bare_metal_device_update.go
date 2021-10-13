@@ -10,9 +10,9 @@
 package swagger
 
 type BareMetalDeviceUpdate struct {
-	Hostname string `json:"hostname"`
-	OsName string `json:"osName"`
 	PublicSshKeyId int32 `json:"publicSshKeyId,omitempty"`
-	Script string `json:"script,omitempty"`
 	Tags []string `json:"tags,omitempty"`
+	Script string `json:"script,omitempty"`
+	OsName string `json:"osName"`
+	Hostname string `json:"hostname"`
 }

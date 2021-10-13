@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**DeleteBareMetalDeviceIdResource**](BareMetalDevicesApi.md#DeleteBareMetalDeviceIdResource) | **Delete** /bare-metal-devices/{deviceId} | Cancel the specified bare metal device
 [**GetBareMetalDeviceIdResource**](BareMetalDevicesApi.md#GetBareMetalDeviceIdResource) | **Get** /bare-metal-devices/{deviceId} | Return bare metal device
 [**GetBareMetalDeviceResource**](BareMetalDevicesApi.md#GetBareMetalDeviceResource) | **Get** /bare-metal-devices/ | Return a list with all servers as bare metal
+[**PostBareMetalDeviceBatchResource**](BareMetalDevicesApi.md#PostBareMetalDeviceBatchResource) | **Post** /bare-metal-devices/batch | Deploy a list of new bare metal servers
 [**PostBareMetalDeviceResource**](BareMetalDevicesApi.md#PostBareMetalDeviceResource) | **Post** /bare-metal-devices/ | Deploy a new bare metal server
 [**PutBareMetalDeviceIdResource**](BareMetalDevicesApi.md#PutBareMetalDeviceIdResource) | **Put** /bare-metal-devices/{deviceId} | Update a bare metal device
 
@@ -103,6 +104,41 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]BareMetalDevice**](BareMetalDevice.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostBareMetalDeviceBatchResource**
+> BareMetalDeviceBatch PostBareMetalDeviceBatchResource(ctx, payload, optional)
+Deploy a list of new bare metal servers
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **payload** | [**BareMetalDeviceBatchCreate**](BareMetalDeviceBatchCreate.md)|  | 
+ **optional** | ***BareMetalDevicesApiPostBareMetalDeviceBatchResourceOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a BareMetalDevicesApiPostBareMetalDeviceBatchResourceOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xFields** | **optional.String**| An optional fields mask | 
+
+### Return type
+
+[**BareMetalDeviceBatch**](BareMetalDeviceBatch.md)
 
 ### Authorization
 

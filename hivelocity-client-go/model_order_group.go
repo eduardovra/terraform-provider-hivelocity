@@ -9,9 +9,9 @@
 
 package swagger
 
-type SingleMxRecordUpdate struct {
-	Exchange string `json:"exchange"`
-	Ttl int32 `json:"ttl,omitempty"`
+type OrderGroup struct {
+	DeviceIds []int32 `json:"device_ids,omitempty"`
+	SameRack bool `json:"same_rack,omitempty"`
+	Id int32 `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
-	Preference int32 `json:"preference,omitempty"`
 }

@@ -9,12 +9,7 @@
 
 package swagger
 
-type SingleMxRecordReturn struct {
-	Exchange string `json:"exchange"`
-	DomainId int32 `json:"domainId"`
-	Type_ string `json:"type"`
-	Ttl int32 `json:"ttl"`
-	Preference int32 `json:"preference"`
+type OrderGroupCreate struct {
+	SameRack bool `json:"same_rack,omitempty"`
 	Name string `json:"name"`
-	Id int32 `json:"id"`
 }

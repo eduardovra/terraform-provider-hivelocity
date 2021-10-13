@@ -12,10 +12,13 @@ import (
 	swagger "github.com/hivelocity/terraform-provider-hivelocity/hivelocity-client-go"
 )
 
-func resourceBareMetalDevice() *schema.Resource {
+// Timeout for creating/updating devices
+const BareMetalDeviceTimeout = 60 * time.Minute
+
+func resourceBareMetalDevice(forceNew bool) *schema.Resource {
 	return &schema.Resource{
 		Timeouts: &schema.ResourceTimeout{
-			Create: schema.DefaultTimeout(60 * time.Minute),
+			Create: schema.DefaultTimeout(BareMetalDeviceTimeout),
 		},
 		CreateContext: resourceBareMetalDeviceCreate,
 		ReadContext:   resourceBareMetalDeviceRead,
@@ -45,7 +48,7 @@ func resourceBareMetalDevice() *schema.Resource {
 			"product_id": &schema.Schema{
 				Type:     schema.TypeInt,
 				Required: true,
-				ForceNew: true,
+				ForceNew: forceNew,
 			},
 			"product_name": &schema.Schema{
 				Type:     schema.TypeString,
@@ -59,7 +62,7 @@ func resourceBareMetalDevice() *schema.Resource {
 			"location_name": &schema.Schema{
 				Type:     schema.TypeString,
 				Required: true,
-				ForceNew: true,
+				ForceNew: forceNew,
 			},
 			"hostname": &schema.Schema{
 				Type:     schema.TypeString,
@@ -111,12 +114,6 @@ func resourceBareMetalDevice() *schema.Resource {
 func resourceBareMetalDeviceCreate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	hv, _ := m.(*Client)
 
-	tags, err := getTags(d)
-	if err != nil {
-		d.SetId("")
-		return diag.FromErr(err)
-	}
-
 	payload := swagger.BareMetalDeviceCreate{
 		ProductId:      int32(d.Get("product_id").(int)),
 		Hostname:       d.Get("hostname").(string),
@@ -135,7 +132,8 @@ func resourceBareMetalDeviceCreate(ctx context.Context, d *schema.ResourceData, 
 		return diag.Errorf("POST /bare-metal-devices failed! (%s)\n\n %s", err, myErr.Body())
 	}
 
-	_, err = waitForOrder(d, hv, bareMetalDevice.OrderId)
+	timeout := d.Timeout(schema.TimeoutCreate)
+	_, err = waitForOrder(timeout, hv, bareMetalDevice.OrderId)
 	if err != nil {
 		d.SetId("")
 		myErr := err.(swagger.GenericSwaggerError)
@@ -147,7 +145,8 @@ func resourceBareMetalDeviceCreate(ctx context.Context, d *schema.ResourceData, 
 			bareMetalDevice.OrderId, err, myErr.Body())
 	}
 
-	device, err := waitForDevice(d, hv, bareMetalDevice.OrderId)
+	newDevice := []swagger.BareMetalDevice{bareMetalDevice}
+	devices, err := waitForDevices(timeout, hv, bareMetalDevice.OrderId, newDevice)
 	if err != nil {
 		d.SetId("")
 		myErr := err.(swagger.GenericSwaggerError)
@@ -155,12 +154,13 @@ func resourceBareMetalDeviceCreate(ctx context.Context, d *schema.ResourceData, 
 			bareMetalDevice.OrderId, err, myErr.Body())
 	}
 
-	newDeviceId := device.(swagger.BareMetalDevice).DeviceId
-	_, err = updateTagsForCreate(hv, newDeviceId, tags)
-	if err != nil {
-		// TODO: The deployment was successful, so we should throw a warning here that tags failed for some reason.
-	}
+	newDeviceId := devices.([]swagger.BareMetalDevice)[0].DeviceId
 	d.SetId(fmt.Sprint(newDeviceId))
+	d.Set("device_id", newDeviceId)
+
+	if err := updateTagsDevice(hv, d); err != nil {
+		return diag.FromErr(err)
+	}
 
 	return resourceBareMetalDeviceRead(ctx, d, m)
 }
@@ -211,11 +211,7 @@ func resourceBareMetalDeviceUpdate(ctx context.Context, d *schema.ResourceData, 
 	payload := swagger.BareMetalDeviceUpdate{}
 	reload_required := false
 
-	tags, err := getTags(d)
-	if err != nil {
-		return diag.FromErr(err)
-	}
-	payload.Tags = tags
+	payload.Tags = getTags(d, "")
 
 	hostname := d.Get("hostname").(string)
 	payload.Hostname = hostname

@@ -9,11 +9,7 @@
 
 package swagger
 
-type SingleARecordReturn struct {
-	DomainId int32 `json:"domainId"`
-	Type_ string `json:"type"`
-	Address string `json:"address,omitempty"`
-	Ttl int32 `json:"ttl"`
+type PtrRecordUpdate struct {
+	Ttl int32 `json:"ttl,omitempty"`
 	Name string `json:"name"`
-	Id int32 `json:"id,omitempty"`
 }
