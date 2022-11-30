@@ -25,6 +25,8 @@ jobs:
         with:
           go-version-file: 'go.mod'
           cache: true
+      - name: Generate API client sources
+        run: make client
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v5
         id: import_gpg
